@@ -18,7 +18,7 @@
 local AnalyticsUtil = {
 	GetIsFollowing = require(script.GetIsFollowing);
 	GetFollowers =  require(script.GetFollowers);
-	GetLikes =  require(script.GetLikes)
+	GetLikes =  require(script.GetLikes);
 	GetSuffix = require(script.GetSuffix);
 }
 
