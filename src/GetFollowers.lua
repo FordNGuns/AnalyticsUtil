@@ -2,7 +2,6 @@
 	Retrieves the number of followers for a given user ID.
 
 	@param userId number -- The user ID to retrieve followers for.
-	@param cursor string? -- The cursor for pagination (optional).
 	@return number -- The total number of followers.
 
 	```lua
