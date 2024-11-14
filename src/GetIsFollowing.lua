@@ -31,7 +31,6 @@ function GetIsFollowing(userId, targetUserId, cursor)
 	end
 	
 	if output.data then
-		print("entry output")
 		for index, entry in output.data do
 			if entry["id"] == targetUserId then
 				return true
