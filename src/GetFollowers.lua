@@ -13,26 +13,16 @@
 local HttpService = game:GetService("HttpService");
 
 function GetFollowers(userId, cursor)
-	local followerCount = 0;
-	local url = ("https://friends.roproxy.com/v1/users/%s/followers?limit=100"):format(tostring(userId));
-	
-	if(typeof(cursor) == "string") then
-		url = ("%s&cursor=%s"):format(url, cursor);
-	end
+	local url = ("https://friends.roproxy.com/v1/users/%s/followers/count"):format(tostring(userId));
 	
 	local success, output = pcall(function() return HttpService:JSONDecode(HttpService:GetAsync(url)) end);
 	
 	if not (success) then
-		return followerCount;
+		print(success)
+		return 0;
+	else
+		return output.count;
 	end
-	
-	followerCount = followerCount + #output.data;
-	
-	if(output.nextPageCursor) then
-		followerCount = followerCount + GetFollowers(userId, output.nextPageCursor);
-	end
-	
-	return followerCount;
 end
 
 return GetFollowers
