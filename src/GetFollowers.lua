@@ -18,7 +18,7 @@ function GetFollowers(userId, cursor)
 	local success, output = pcall(function() return HttpService:JSONDecode(HttpService:GetAsync(url)) end);
 	
 	if not (success) then
-		print(success)
+		warn(success)
 		return 0;
 	else
 		return output.count;
